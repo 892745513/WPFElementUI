@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFElementUI", "WPFElementUI\WPFElementUI.csproj", "{F78C54E2-24CC-4DBC-AC64-EBDF87BFFA5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUI", "TestUI\TestUI.csproj", "{72C7EB35-A798-4C7D-B73B-6DA7DC678BCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F78C54E2-24CC-4DBC-AC64-EBDF87BFFA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F78C54E2-24CC-4DBC-AC64-EBDF87BFFA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F78C54E2-24CC-4DBC-AC64-EBDF87BFFA5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C7EB35-A798-4C7D-B73B-6DA7DC678BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C7EB35-A798-4C7D-B73B-6DA7DC678BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C7EB35-A798-4C7D-B73B-6DA7DC678BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C7EB35-A798-4C7D-B73B-6DA7DC678BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

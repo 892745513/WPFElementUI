@@ -1,0 +1,423 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+                    xmlns:system1="clr-namespace:System;assembly=mscorlib">
+
+    <Style x:Key="RepeatButtonBase" TargetType="{x:Type RepeatButton}">
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Background" Value="{DynamicResource SolidBrushColorPageBackground}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="16,8"/>
+        <Setter Property="Margin" Value="2"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushBaseBorder}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushPrimaryText}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="4"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="{DynamicResource OpcityDisable}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--默认按钮-->
+    <Style x:Key="RepeatButtonDefault" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain4}"/>
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--主要按钮-->
+    <Style x:Key="RepeatButtonPrimary" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushMain}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityMouseOver}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--成功按钮-->
+    <Style x:Key="RepeatButtonSuccess" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonPrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+    </Style>
+    <!--警告按钮-->
+    <Style x:Key="RepeatButtonWarning" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonPrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushWarning}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+    </Style>
+
+    <!--危险按钮-->
+    <Style x:Key="RepeatButtonDanger" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonPrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushDanger}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+    </Style>
+
+
+    <!--信息按钮-->
+    <Style x:Key="RepeatButtonInfo" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonPrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushInfo}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+    </Style>
+
+    <!--朴素按钮-默认-->
+    <Style x:Key="RepeatButtonPlainDefault" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain4}"/>
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-主要-->
+    <Style x:Key="RepeatButtonPlainPrimary" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-成功-->
+    <Style x:Key="RepeatButtonPlainSuccess" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess6}"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-信息-->
+    <Style x:Key="RepeatButtonPlainInfo" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushInfo6}"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushInfo}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushInfo}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushInfo}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-警告-->
+    <Style x:Key="RepeatButtonPlainWarning" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushWarning6}"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushWarning}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushWarning}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushWarning}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-危险-->
+    <Style x:Key="RepeatButtonPlainDanger" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushDanger6}"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushDanger}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushDanger}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushDanger}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+
+    <Style x:Key="RepeatButtonCircleBase" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="2"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+
+        <Setter Property="Width" Value="32"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource  Mode=FindAncestor , AncestorType=RepeatButton} }"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="{DynamicResource RepeatButtonDisableOpcity}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--朴素按钮-默认-->
+    <Style x:Key="RepeatButtonPlainCircleDefault" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain4}"/>
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-主要-->
+    <Style x:Key="RepeatButtonPlainCirclePrimary" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-成功-->
+    <Style x:Key="RepeatButtonPlainCircleSuccess" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess6}"/>
+
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-信息-->
+    <Style x:Key="RepeatButtonPlainCircleInfo" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushInfo6}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushInfo}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushInfo}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushInfo}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-警告-->
+    <Style x:Key="RepeatButtonPlainCircleWarning" TargetType="{x:Type RepeatButton}"  BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushWarning6}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushWarning}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushWarning}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushWarning}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--朴素按钮-危险-->
+    <Style x:Key="RepeatButtonPlainCircleDanger" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushDanger6}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushDanger}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushDanger}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushDanger}"/>
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+    <!--默认按钮-->
+    <Style x:Key="RepeatButtonCircleDefault" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain4}"/>
+                <Setter Property="Background" Value="{DynamicResource SolidBrushMain6}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SolidBrushMain}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--主要按钮-->
+    <Style x:Key="RepeatButtonCirclePrimary" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCircleBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushMain}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityMouseOver}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--成功按钮-->
+    <Style x:Key="RepeatButtonCircleSuccess" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCirclePrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+    </Style>
+    <!--警告按钮-->
+    <Style x:Key="RepeatButtonCircleWarning" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCirclePrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushWarning}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+    </Style>
+
+    <!--危险按钮-->
+    <Style x:Key="RepeatButtonCircleDanger" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCirclePrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushDanger}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+
+    </Style>
+
+
+    <!--信息按钮-->
+    <Style x:Key="RepeatButtonCircleInfo" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonCirclePrimary}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushInfo}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushBasicWhite}"/>
+    </Style>
+
+
+    <Style x:Key="TextRepeatButtonDefault" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource RepeatButtonBase}">
+        <Setter Property="Background" Value="{DynamicResource SolidBrushTransparent}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushPrimaryText}"/>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SolidBrushLighterBorder}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityPressed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="TextRepeatButtonPrimary" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource TextRepeatButtonDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushMain}"/>
+    </Style>
+    <Style x:Key="TextRepeatButtonSuccess" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource TextRepeatButtonDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushSuccess}"/>
+    </Style>
+    <Style x:Key="TextRepeatButtonWarning" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource TextRepeatButtonDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushWarning}"/>
+    </Style>
+    <Style x:Key="TextRepeatButtonDanger" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource TextRepeatButtonDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushDanger}"/>
+    </Style>
+    <Style x:Key="TextRepeatButtonInfo" TargetType="{x:Type RepeatButton}" BasedOn="{StaticResource TextRepeatButtonDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushInfo}"/>
+    </Style>
+
+
+</ResourceDictionary>

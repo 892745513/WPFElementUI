@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+                    xmlns:cli="clr-namespace:System;assembly=mscorlib"
+                    xmlns:sys="http://schemas.microsoft.com/netfx/2009/xaml/presentation">
+
+    <cli:Double x:Key="FontSizeExtraSmall">9</cli:Double>
+    <cli:Double x:Key="FontSizeSmall">11</cli:Double>
+    <cli:Double x:Key="FontSizeBase">12</cli:Double>
+    <cli:Double x:Key="FontSizeMedium">14</cli:Double>
+    <cli:Double x:Key="FontSizeLarge">16</cli:Double>
+    <cli:Double x:Key="FontSizeExtraLarge">20</cli:Double>
+
+
+    <cli:Double x:Key="OpcityDisable">0.55</cli:Double>
+    <cli:Double x:Key="OpcityPressed">0.7</cli:Double>
+    <cli:Double x:Key="OpcityMouseOver">0.8</cli:Double>
+    
+</ResourceDictionary>

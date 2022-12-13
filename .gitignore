@@ -4,3 +4,5 @@
 
 /.vs
 /WPFElementUI/.vs/WPFElementUI
+/WPFElementUI/packages/Microsoft.Xaml.Behaviors.Wpf.1.1.39
+/WPFElementUI/TestUI/obj/Debug

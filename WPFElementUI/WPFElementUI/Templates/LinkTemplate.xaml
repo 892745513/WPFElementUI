@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="LinkDefault" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushPrimaryText}"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="Margin" Value="4"></Setter>
+        <Setter Property="Background" Value="{DynamicResource SolidBrushTransparent}"></Setter>
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}"></Setter> 
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="TextDecorations" Value="Underline"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="{DynamicResource OpcityDisable}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LinkPrimary" TargetType="TextBlock" BasedOn="{StaticResource LinkDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource  SolidBrushMain}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource  SolidBrushMain2}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LinkSuccess" TargetType="TextBlock" BasedOn="{StaticResource LinkDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource  SolidBrushSuccess}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource  SolidBrushSuccess2}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="LinkWarning" TargetType="TextBlock" BasedOn="{StaticResource LinkDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushWarning}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource  SolidBrushWarning2}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="LinkDanger" TargetType="TextBlock" BasedOn="{StaticResource LinkDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushDanger}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource  SolidBrushDanger2}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="LinkInfo" TargetType="TextBlock" BasedOn="{StaticResource LinkDefault}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushInfo}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource  SolidBrushInfo2}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

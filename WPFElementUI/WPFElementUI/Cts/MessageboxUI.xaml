@@ -1,0 +1,61 @@
+﻿<UserControl
+    x:Class="Styles.Cts.MessageboxUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Styles.Cts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="40" d:DesignWidth="500" Visibility="Collapsed"  MaxHeight="200" Height="auto" >
+    <ListBox MinHeight="40" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Msgs}" MaxHeight="300" Height="auto" Style="{DynamicResource ListBoxDefault}">
+        <ListBox.Resources>
+            <Style TargetType="Label">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding MsgType}" Value="0">
+                        <Setter Property="Background" Value="{DynamicResource SolidBrushInfo4}"></Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MsgType}" Value="1">
+                        <Setter Property="Background" Value="{DynamicResource SolidBrushSuccess4}"></Setter> 
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MsgType}" Value="2">
+                        <Setter Property="Background" Value="{DynamicResource SolidBrushWarning4}"></Setter>
+
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MsgType}" Value="3">
+                        <Setter Property="Background" Value="{DynamicResource SolidBrushDanger4}"></Setter>
+
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style> 
+        </ListBox.Resources>
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Label Height="auto" HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Msg}" TextWrapping="Wrap" FontWeight="Bold" Margin="4" VerticalAlignment="Center" >
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding MsgType}" Value="0">
+                                        <Setter Property="Foreground" Value="{DynamicResource SolidBrushInfo}"></Setter> 
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MsgType}" Value="1">
+                                        <Setter Property="Foreground" Value="{DynamicResource SolidBrushSuccess}"></Setter> 
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MsgType}" Value="2">
+                                        <Setter Property="Foreground" Value="{DynamicResource SolidBrushWarning}"></Setter> 
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding MsgType}" Value="3">
+                                        <Setter Property="Foreground" Value="{DynamicResource SolidBrushDanger}"></Setter>
+
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Label>
+              
+            </DataTemplate>
+        </ListBox.ItemTemplate> 
+    </ListBox>
+
+</UserControl>

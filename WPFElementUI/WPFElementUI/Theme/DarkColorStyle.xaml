@@ -1,0 +1,82 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:system1="clr-namespace:System;assembly=mscorlib">
+
+    <!--默认的主题色是明亮、友好的蓝色。-->
+    <Color x:Key="ColorMain">#409EFF</Color>
+    <Color x:Key="ColorMain1">#66B1FF</Color>
+    <Color x:Key="ColorMain2">#3375B9</Color>
+    <Color x:Key="ColorMain3">#2A598A</Color>
+    <Color x:Key="ColorMain4">#213d5b</Color>
+    <Color x:Key="ColorMain5">#1d3043</Color>
+    <Color x:Key="ColorMain6">#18222c</Color>
+  
+
+    <!--辅助色 除了主色外的场景色，需要在不同的场景中使用（例如危险色表示危险的操作）。-->
+ 
+    <Color x:Key="ColorSuccess">#67C23A</Color>
+    <Color x:Key="ColorSuccess1">#85ce61</Color>
+    <Color x:Key="ColorSuccess2">#4e8e2f</Color>
+    <Color x:Key="ColorSuccess3">#3e6b27</Color>
+    <Color x:Key="ColorSuccess4">#2d481f</Color>
+    <Color x:Key="ColorSuccess5">#25371c</Color>
+    <Color x:Key="ColorSuccess6">#1c2518</Color>
+
+    <Color x:Key="ColorDanger">#F56C6C</Color>
+    <Color x:Key="ColorDanger1">#f78989</Color>
+    <Color x:Key="ColorDanger2">#b25252</Color>
+    <Color x:Key="ColorDanger3">#854040</Color>
+    <Color x:Key="ColorDanger4">#582e2e</Color>
+    <Color x:Key="ColorDanger5">#412626</Color>
+    <Color x:Key="ColorDanger6">#2b1d1d</Color>
+
+    <Color x:Key="ColorWarning">#E6A23C</Color>
+    <Color x:Key="ColorWarning1">#ebb563</Color>
+    <Color x:Key="ColorWarning2">#a77730</Color>
+    <Color x:Key="ColorWarning3">#7d5b28</Color>
+    <Color x:Key="ColorWarning4">#533f20</Color>
+    <Color x:Key="ColorWarning5">#3e301c</Color>
+    <Color x:Key="ColorWarning6">#292218</Color>
+
+    <Color x:Key="ColorInfo">#909399</Color>
+    <Color x:Key="ColorInfo1">#a6a9ad</Color>
+    <Color x:Key="ColorInfo2">#6b6d71</Color>
+    <Color x:Key="ColorInfo3">#525457</Color>
+    <Color x:Key="ColorInfo4">#393a3c</Color>
+    <Color x:Key="ColorInfo5">#2d2d2f</Color>
+    <Color x:Key="ColorInfo6">#202121</Color>
+
+  
+
+    <!--中性色 中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构-->
+    <Color x:Key="ColorPrimaryText">#E5EAF3</Color>
+    <Color x:Key="ColorRegularText">#CFD3DC</Color>
+    <Color x:Key="ColorSecondaryText">#A3A6AD</Color>
+    <Color x:Key="ColorPlaceholderText">#8D9095</Color>
+    <Color x:Key="ColorDisabledText">#6C6E72</Color>
+
+    <Color x:Key="ColorDarkerBorder">#636466</Color>
+    <Color x:Key="ColorDarkBorder">#58585B</Color>
+    <Color x:Key="ColorBaseBorder">#4C4D4F</Color>
+    <Color x:Key="ColorLightBorder">#414243</Color>
+    <Color x:Key="ColorLighterBorder">#363637</Color>
+    <Color x:Key="ColorExtralightBorder">#2B2B2C</Color>
+
+    <Color x:Key="ColorDarkerFill">#424243</Color>
+    <Color x:Key="ColorDarkFill">#39393A</Color>
+    <Color x:Key="ColorBaseFill">#303030</Color>
+    <Color x:Key="ColorLightFill">#262727</Color>
+    <Color x:Key="ColorLighterFill">#1D1D1D</Color>
+    <Color x:Key="ColorExtralightFill">#191919</Color>
+    <Color x:Key="ColorBlankFill">TRANSPARENT</Color>
+
+    <Color x:Key="ColorBasicBlack">#000000</Color>
+    <Color x:Key="ColorBasicWhite">#FFFFFF</Color>
+    <Color x:Key="ColorTransparent">Transparent</Color>
+
+    <Color x:Key="ColorPageBackground">#0A0A0A</Color>
+    <Color x:Key="ColorBaseBackground">#141414</Color>
+    <Color x:Key="ColorOverlayBackground">#1D1E1F</Color>
+
+ 
+</ResourceDictionary>

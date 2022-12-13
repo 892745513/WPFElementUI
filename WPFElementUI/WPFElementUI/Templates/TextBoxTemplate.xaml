@@ -1,0 +1,249 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"  
+                    xmlns:dps="clr-namespace:dps"
+                    xmlns:behaviors="clr-namespace:Behaviors" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <ControlTemplate x:Key="TextBoxExTemplate" TargetType="{x:Type TextBox}">
+        <Border x:Name="brdTextBox" 
+                                BorderBrush="{DynamicResource SolidBrushBaseBorder}"
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="txbHint" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Margin="4,0" 
+                                   Grid.ColumnSpan="2"
+                                   Foreground="{DynamicResource SolidBrushPlaceholderText}" 
+                                   Text="{TemplateBinding dps:TextBoxEx.PlaceHolder}" 
+                                   Visibility="Collapsed"/>
+
+                <ScrollViewer x:Name="PART_ContentHost"
+                                  Grid.ColumnSpan="2" 
+                                  Focusable="False"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden"/>
+
+                <Button  x:Name="lbclear" Grid.Column="1" Height="16" Width="16" 
+                                             Visibility="Collapsed"
+                                             BorderThickness="0"
+                                             Content="×"
+                                             Margin="0"
+                                             Style="{DynamicResource ButtonPlainCircleDefault}"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"></Button>
+
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" TargetName="brdTextBox" Value="{DynamicResource SolidBrushMain}"></Setter>
+            </Trigger>
+            <Trigger Property="Text" Value="">
+                <Setter TargetName="txbHint" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="dps:TextBoxEx.HasClear" Value="True">
+                <Setter TargetName="PART_ContentHost" Property="Grid.ColumnSpan" Value="1"/>
+                <Setter TargetName="txbHint" Property="Grid.ColumnSpan" Value="1"/>
+
+                <Setter TargetName="lbclear" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <DataTrigger Binding="{Binding ElementName=lbclear, Path= IsPressed}" Value="True">
+                <Setter Property="Text" Value=""></Setter>
+            </DataTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="TextBoxNumberBoxTemplate" TargetType="{x:Type TextBox}">
+        <Border x:Name="brdTextBox" 
+                                BorderBrush="{DynamicResource SolidBrushBaseBorder}"
+                                BorderThickness="1" 
+                                CornerRadius="4" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="28"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="28"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <RepeatButton  x:Name="lbSub" Grid.Column="0" Height="26" Width="26"
+                                             BorderThickness="0" 
+                                             Content="-" 
+                                             Padding="0"  Margin="0"
+                                             Click="{x:Static dps:TextBoxEx.SubHandler }"
+                                             Style="{DynamicResource RepeatButtonPlainPrimary}" >
+
+                </RepeatButton>
+
+                <TextBlock x:Name="txbHint" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Margin="4,0" 
+                                   Grid.Column="1"
+                                   Foreground="{DynamicResource SolidBrushPlaceholderText}" 
+                                   Text="{TemplateBinding dps:TextBoxEx.PlaceHolder}" 
+                                   Visibility="Collapsed"/>
+
+                <ScrollViewer x:Name="PART_ContentHost"
+                                  Grid.Column="1"
+                                  Focusable="False"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden"/>
+
+                <RepeatButton  x:Name="lbAdd" Grid.Column="2" Height="26"  Width="26"
+                                             BorderThickness="0"
+                                             Content="+"   
+                                             Padding="0"   Margin="0"
+                                             Click="{x:Static dps:TextBoxEx.AddHandler}"
+                                             Style="{DynamicResource RepeatButtonPlainPrimary}" ></RepeatButton>
+
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" TargetName="brdTextBox" Value="{DynamicResource SolidBrushMain}"></Setter>
+            </Trigger>
+            <Trigger Property="Text" Value="">
+                <Setter TargetName="txbHint" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" TargetName="brdTextBox" Value="{DynamicResource SolidBrushMain}"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="TextBoxDateTemplate" TargetType="{x:Type TextBox}">
+        <Border x:Name="brdTextBox" 
+                                BorderBrush="{DynamicResource SolidBrushBaseBorder}"
+                                BorderThickness="1" 
+                                CornerRadius="4">
+            <Grid x:Name="gd">
+                <TextBlock x:Name="txbHint" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Margin="4,0" 
+                                   Foreground="{DynamicResource SolidBrushPlaceholderText}" 
+                                   Text="{TemplateBinding dps:TextBoxEx.PlaceHolder}" 
+                                   Visibility="Collapsed"/>
+
+                <ScrollViewer x:Name="PART_ContentHost"
+                                  Grid.Column="1"
+                                  Focusable="False"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden"
+                              PreviewMouseLeftButtonUp="{x:Static dps:TextBoxEx.GotFocusDateBox}" />
+
+                <Popup x:Name="pop" IsOpen="{TemplateBinding dps:TextBoxEx.ShowPop}" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_ContentHost}">
+                    <StackPanel Background="{TemplateBinding Background}">
+                        <StackPanel Orientation="Horizontal">
+                            <ListBox Focusable="False" ScrollViewer.CanContentScroll="True"  Width="120"
+                                     SelectedItem="{TemplateBinding dps:TextBoxEx.SelectedYear}" 
+                                     Height="{Binding Path=ActualHeight,ElementName=ltMonth}"
+                                     Style="{DynamicResource ListBoxDefault}" 
+                                     ItemsSource="{TemplateBinding dps:TextBoxEx.Years}">
+                                <b:Interaction.Behaviors>
+                                    <behaviors:AutoScrollBehavior></behaviors:AutoScrollBehavior>
+                                </b:Interaction.Behaviors> 
+                            </ListBox>
+                            <ListBox Focusable="False" x:Name="ltMonth" SelectedItem="{TemplateBinding dps:TextBoxEx.SelectedMonth}" Width="100" Style="{DynamicResource ListBoxDefault}" ItemsSource="{TemplateBinding dps:TextBoxEx.Months }">
+                                
+                            </ListBox>
+                        </StackPanel>
+                        <StackPanel  Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button DataContext="{Binding ElementName=PART_ContentHost}"  Style="{DynamicResource TextButtonInfo}" Content="取消" Click="{x:Static dps:TextBoxEx.DateCancleHandler}"></Button>
+                            <Button  DataContext="{Binding ElementName=PART_ContentHost}"  Style="{DynamicResource TextButtonPrimary}" Content="确认" Click="{x:Static dps:TextBoxEx.DateOkHandler}"></Button>
+                        </StackPanel>
+                    </StackPanel> 
+                </Popup>
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" TargetName="brdTextBox" Value="{DynamicResource SolidBrushMain}"></Setter>
+
+            </Trigger>  
+            <Trigger Property="Text" Value="">
+                <Setter TargetName="txbHint" Property="Visibility" Value="Visible"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--输入框-->
+    <Style x:Key="TextBoxDefault" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushPrimaryText}"/>
+        <Setter Property="Background" Value="{DynamicResource SolidBrushColorOverlayBackground}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource SolidBrushPrimaryText}"></Setter>
+        <Setter Property="Padding" Value="4,0"></Setter>
+        <Setter Property="Height" Value="28"></Setter>
+        <Setter Property="Margin" Value="4"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+        <Setter Property="dps:TextBoxEx.PlaceHolder" Value="请输入"></Setter>
+        <Setter Property="dps:TextBoxEx.HasClear" Value="False"></Setter>
+        <Setter Property="Template" Value="{StaticResource TextBoxExTemplate}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="dps:TextBoxEx.IsNumberBox" Value="True">
+                <Setter Property="Template" Value="{StaticResource  TextBoxNumberBoxTemplate}"></Setter>
+            </Trigger>
+           
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.55"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <!--输入框-->
+    <Style x:Key="TextBoxNumberBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxDefault}"> 
+        <Setter Property="dps:TextBoxEx.IsNumberBox" Value="True"></Setter>
+    </Style>
+    <!--输入框-->
+    <Style x:Key="TextBoxDateBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxDefault}"> 
+        <Setter Property="dps:TextBoxEx.IsDate" Value="True"></Setter>
+        <Setter Property="Template" Value="{StaticResource  TextBoxDateTemplate}"></Setter>
+        <Setter Property="dps:TextBoxEx.Years" Value="{x:Static dps:TextBoxEx.YeadsDefaults}"></Setter>
+        <Setter Property="dps:TextBoxEx.Months" Value="{x:Static dps:TextBoxEx.MonthsDefaults}"></Setter> 
+    </Style>
+
+
+
+    <!--输入框-->
+    <Style x:Key="PasswordBoxDefault" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Foreground" Value="{DynamicResource SolidBrushPrimaryText}"/>
+        <Setter Property="Padding" Value="8,0,0,0"></Setter>
+        <Setter Property="Height" Value="28"></Setter>
+        <Setter Property="Margin" Value="4"></Setter>
+        <Setter Property="CaretBrush" Value="{DynamicResource SolidBrushPrimaryText}"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Grid>
+                        <Border x:Name="brdTextBox"
+                                BorderBrush="{DynamicResource SolidBrushBaseBorder}"
+                                BorderThickness="1" CornerRadius="4">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="brdTextBox" Value="{DynamicResource SolidBrushMain}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

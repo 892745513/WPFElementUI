@@ -1,0 +1,49 @@
+﻿<UserControl
+    x:Class="Styles.Cts.MessageBoxConfirm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Styles.Cts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="160"  d:DesignWidth="400" FontSize="14" Background="{DynamicResource SolidBrushColorPageBackground}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries> 
+                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Theme/LightTheme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Templates/All.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel>
+        <Border x:Name="borderTop" DockPanel.Dock="Top" Background="{DynamicResource SolidBrushBaseBorder}" Height="2" Cursor="SizeNS" PreviewMouseDown="SizeTOPRIGHT_MouseDown"></Border>
+        <Border x:Name="borderLeft" DockPanel.Dock="Left" Background="{DynamicResource SolidBrushBaseBorder}" Width="2" Cursor="SizeWE" PreviewMouseDown="SizeTopLeft_MouseDown"></Border>
+        <Border x:Name="borderBottom" DockPanel.Dock="Bottom" Background="{DynamicResource SolidBrushBaseBorder}" Height="2"  Cursor="SizeNS" PreviewMouseDown="SizeBOTTOMLEFT_MouseDown"></Border>
+        <Border x:Name="borderRight" DockPanel.Dock="Right" Background="{DynamicResource SolidBrushBaseBorder}" Width="2" Cursor="SizeWE" PreviewMouseDown="SizeBOTTOMRIGHT_MouseDown"></Border>
+        <Grid  Background="{DynamicResource SolidBrushColorBaseBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Background="Transparent" Grid.Row="0" Grid.RowSpan="3" MouseLeftButtonDown="Move_MouseDown"></Border>
+
+            <Grid>
+                <TextBlock Text="{Binding Title,Mode=OneTime}" Margin="8" HorizontalAlignment="Left"   Foreground="{DynamicResource SolidBrushPrimaryText}" FontSize="18" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                <Button Click="btnCancle_Click" Padding="0" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" Content="×" Width="24" Height="24" Margin="2" VerticalAlignment="Center" Style="{DynamicResource TextButtonDanger}"></Button>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="ui1" >
+
+                <TextBlock Text="{Binding Message,Mode=OneTime}" HorizontalAlignment="Left"  Margin="16,0" Foreground="{DynamicResource SolidBrushPrimaryText}" TextWrapping="Wrap" VerticalAlignment="Center"></TextBlock>
+
+            </Grid>
+            <Grid   Grid.Row="1"  x:Name="ui2" Visibility="Collapsed">
+                <TextBox x:Name="tbxMsg" Height="32" Margin="8" Style="{DynamicResource TextBoxDefault}"></TextBox>
+            </Grid>
+            <StackPanel Height="32" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,2">
+                <Button Content="取消" Click="btnCancle_Click"  Style="{DynamicResource ButtonDefault}" Margin="0,0,4,0" Cursor="Hand"></Button>
+                <Button Content="确认"  Click="btnOk_Click" Style="{DynamicResource ButtonPrimary}" Margin="0,0,8,0" Cursor="Hand"></Button>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>
