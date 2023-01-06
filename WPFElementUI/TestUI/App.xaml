@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:TestUI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Theme/LightTheme.xaml"></ResourceDictionary>
+                <!--<ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Theme/DarkTheme.xaml"></ResourceDictionary>-->
+                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Templates/All.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+      
     </Application.Resources>
 </Application>

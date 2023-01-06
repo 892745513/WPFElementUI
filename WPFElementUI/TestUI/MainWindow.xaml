@@ -3,20 +3,108 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dps="clr-namespace:dps;assembly=WPFElementUI"
         xmlns:local="clr-namespace:TestUI"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Theme/LightTheme.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="pack://application:,,,/WPFElementUI;component/Templates/All.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        Title="MainWindow" Height="450" Width="800" Background="{StaticResource SolidBrushColorBaseBackground}"> 
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="4">
             <Button Content="button" Style="{StaticResource TextButtonDanger}" ></Button>
+            <Button Content="button" Style="{StaticResource TextButtonDefault}" ></Button>
+            <Button Content="button" Style="{StaticResource TextButtonInfo}" ></Button>
+            <Button Content="button" Style="{StaticResource TextButtonPrimary}" ></Button>
+            <Button Content="button" Style="{StaticResource TextButtonSuccess}" ></Button>
+            <Button Content="button" Style="{StaticResource TextButtonWarning}" ></Button> 
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <Button Content="button" Style="{StaticResource ButtonInfo}" ></Button>
+            <Button Content="button" Style="{StaticResource ButtonDanger}" ></Button>
+            <Button Content="button" Style="{StaticResource ButtonDefault}" ></Button>
+            <Button Content="button" Style="{StaticResource ButtonPrimary}" ></Button>
+            <Button Content="button" Style="{StaticResource ButtonSuccess}" ></Button>
+            <Button Content="button" Style="{StaticResource ButtonWarning}" ></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <Button Content="button" Style="{StaticResource ButtonPlainInfo}" ></Button>
+            <Button Content="button" Style="{StaticResource  ButtonPlainDanger}" ></Button>
+            <Button Content="button" Style="{StaticResource  ButtonPlainDefault}" ></Button>
+            <Button Content="button" Style="{StaticResource  ButtonPlainPrimary}" ></Button>
+            <Button Content="button" Style="{StaticResource  ButtonPlainSuccess}" ></Button>
+            <Button Content="button" Style="{StaticResource  ButtonPlainWarning}" ></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <Button Content="r" Style="{StaticResource  ButtonPlainCircleInfo }" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonPlainCircleDanger}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonPlainCircleDefault}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonPlainCirclePrimary}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonPlainCircleSuccess}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonPlainCircleWarning}" ></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <Button Content="r" Style="{StaticResource  ButtonCircleInfo }" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonCircleDanger}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonCircleDefault}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonCirclePrimary}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonCircleSuccess}" ></Button>
+            <Button Content="r" Style="{StaticResource  ButtonCircleWarning}" ></Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <ComboBox  Style="{StaticResource ComboBoxDefault}" Width="200">
+                <Label>1</Label>
+                <Label>2</Label>
+                <Label>1</Label>
+                <Label>2</Label>
+            </ComboBox>
+            <TextBox Style="{StaticResource TextBoxDefault}" Width="200" dps:TextBoxEx.HasClear="true" dps:TextBoxEx.PlaceHolder="输入"></TextBox>
+            <TextBox Style="{StaticResource TextBoxDefault}" Width="200" dps:TextBoxEx.IsNumberBox="True"   dps:TextBoxEx.PlaceHolder="0"></TextBox>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <RadioButton Style="{StaticResource RadioButtonDefault}" IsChecked="True" Content="a"></RadioButton>
+            <RadioButton Style="{StaticResource RadioButtonDefault}" Content="b"></RadioButton>
+
+            <RadioButton GroupName="ra" Style="{StaticResource RadioButtonGroup}" Margin="20,0,0,0" IsChecked="True" Content="a"></RadioButton>
+            <RadioButton GroupName="ra" Style="{StaticResource RadioButtonGroup}" Content="b"></RadioButton>
+            <RadioButton GroupName="ra" Style="{StaticResource RadioButtonGroup}" Content="c"></RadioButton>
+
+            <RadioButton GroupName="rb" Style="{StaticResource RadioButtonGroupLine}" Margin="20,0,0,0" IsChecked="True" Content="a"></RadioButton>
+            <RadioButton GroupName="rb" Style="{StaticResource RadioButtonGroupLine}" Content="b"></RadioButton>
+            <RadioButton GroupName="rb" Style="{StaticResource RadioButtonGroupLine}" Content="c"></RadioButton>
+
+            <RadioButton GroupName="rc" Style="{StaticResource RadioButtonWithBorder}" Margin="20,4,0,4" IsChecked="True" Content="a"></RadioButton>
+            <RadioButton GroupName="rc" Style="{StaticResource RadioButtonWithBorder}" Content="b"></RadioButton>
+            <RadioButton GroupName="rc" Style="{StaticResource RadioButtonWithBorder}" Content="c"></RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <CheckBox Style="{StaticResource CheckBoxDefault}" IsChecked="True" Content="a"></CheckBox>
+            <CheckBox Style="{StaticResource CheckBoxDefault}" Content="b"></CheckBox>
+
+            <CheckBox   Style="{StaticResource CheckBoxGroup}" Margin="20,4,0,4" IsChecked="True" Content="ac"></CheckBox>
+            <CheckBox   Style="{StaticResource CheckBoxGroup}" Margin="0,4,0,4" Content="bc"></CheckBox>
+            <CheckBox   Style="{StaticResource CheckBoxGroup}" Margin="0,4,0,4" Content="cc"></CheckBox>
+
+            <CheckBox   Style="{StaticResource CheckBoxDefaultWithBorder}" Margin="20,4,0,4" IsChecked="True" Content="a"></CheckBox>
+            <CheckBox   Style="{StaticResource CheckBoxDefaultWithBorder}" Margin="0,4,0,4" Content="b"></CheckBox>
+            <CheckBox   Style="{StaticResource CheckBoxDefaultWithBorder}" Margin="0,4,0,4" Content="c"></CheckBox>
+ 
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <TextBlock Text="link" Style="{StaticResource LinkInfo}"></TextBlock>
+            <TextBlock Text="link"  Style="{StaticResource  LinkDefault}"></TextBlock>
+            <TextBlock Text="link" Style="{StaticResource   LinkPrimary}"></TextBlock>
+            <TextBlock Text="link"  Style="{StaticResource  LinkDanger}"></TextBlock>
+            <TextBlock Text="link" Style="{StaticResource   LinkSuccess}"></TextBlock>
+            <TextBlock Text="link"  Style="{StaticResource  LinkWarning}"></TextBlock>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Margin="4">
+            <ToggleButton Style="{StaticResource ToggleButtonDefault}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleButtonWithOpen}"></ToggleButton>
+            <ToggleButton Style="{StaticResource ToggleButtonWithYes}"></ToggleButton> 
         </StackPanel>
     </StackPanel>
 </Window>
